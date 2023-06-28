@@ -1,7 +1,25 @@
 "use strict";
-function getCustomer(id) {
-    return id === 0 ? null : { birthday: new Date() };
+class Logger {
+    constructor(file) {
+        this.file = file;
+    }
+    log(message) {
+        console.log(message);
+    }
 }
-let customer = getCustomer(0);
-console.log(customer === null || customer === void 0 ? void 0 : customer.birthday);
+class Person {
+    constructor(firstName, lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+    get fullName() {
+        return this.firstName + ' ' + this.lastName;
+    }
+}
+class Employee extends Person {
+    constructor(salary, firstName, lastName) {
+        super(firstName, lastName);
+        this.salary = salary;
+    }
+}
 //# sourceMappingURL=index.js.map

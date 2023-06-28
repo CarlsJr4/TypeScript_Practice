@@ -1,28 +1,37 @@
-type User = {
+// OOP Exercises
+class Logger {
+  constructor(public file: string) {}
+
+  log(message: string) {
+    console.log(message);
+  }
+}
+
+class Person {
+  constructor(public firstName: string, public lastName: string) {}
+
+  get fullName() {
+    return this.firstName + ' ' + this.lastName;
+  }
+}
+
+class Employee extends Person {
+  constructor(public salary: number, firstName: string, lastName: string) {
+    super(firstName, lastName);
+  }
+}
+
+// Private members are only accessible within the parent class. Cannot be inherited.
+// Protected members can be inherited
+
+interface Address {
+  street: string;
+  city: string;
+  zipCode: string;
+}
+
+interface Employee2 {
   name: string;
-  age: number;
-  occupation?: string;
-};
-
-type Bird = {
-  fly: true;
-};
-
-type Fish = {
-  swim: true;
-};
-
-let pet: Bird | Fish;
-
-type Day = 'Monday' | 'Tuesday' | 'Wednesday';
-
-// let user = getUser();
-// console.log(user && user.address ? user.address.street : undefined);
-// console.log(user?.address?.street);
-
-// let x = foo !== null && foo !== undefined ? foo : bar();
-// let x = foo ?? bar();
-
-// let value: unknown = 'a'
-// console.log(value.toUpperCase());
-// The problem is that the unknown type hasn't been narrowed yet
+  salary: number;
+  address: Address;
+}
